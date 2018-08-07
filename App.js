@@ -1,42 +1,47 @@
 import React from 'react';
-import { Button, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons'; // Version can be specified in package.json
-import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation'; // Version can be specified in package.json
+import {
+  StackNavigator,
+  TabNavigator,
+  TabBarBottom,
+  SwitchNavigator,
+  AsyncStorage
+} from 'react-navigation'; // Version can be specified in package.json
 
-import HomeScreen from './components/HomeScreen'
-import CameraScreen from './components/CameraScreen'
-import HistoryScreen from './components/HistoryScreen'
-import DetailsScreen from './components/DetialsScreen'
+import StartScreen from './components/StartScreen';
+import OnboardingScreen from './components/OnboardingScreen';
+import HomeScreen from './components/HomeScreen';
+import CameraScreen from './components/CameraScreen';
+import HistoryScreen from './components/HistoryScreen';
+import DetailsScreen from './components/DetialsScreen';
 
-console.disableYellowBox=true;
+console.disableYellowBox = true;
 
-
-
+const status = false;
 
 const HomeStack = StackNavigator({
   Home: { screen: HomeScreen },
-  Details: { screen: DetailsScreen },
+  Details: { screen: DetailsScreen }
 });
 
 const Camera = StackNavigator({
   Camera: { screen: CameraScreen },
-  Details: { screen: DetailsScreen },
+  Details: { screen: DetailsScreen }
 });
 
 const History = StackNavigator({
   History: { screen: HistoryScreen },
-  Details: { screen: DetailsScreen },
+  Details: { screen: DetailsScreen }
 });
 
-export default TabNavigator(
+const TabNav = TabNavigator(
   {
     Home: { screen: HomeStack },
-    Camera:{ screen: Camera, },
-    History: { screen: History },
-  
+    Camera: { screen: Camera }
   },
   {
     navigationOptions: ({ navigation }) => ({
+      header: null,
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
         let iconName;
@@ -44,21 +49,37 @@ export default TabNavigator(
           iconName = `ios-home${focused ? '' : '-outline'}`;
         } else if (routeName === 'Camera') {
           iconName = `ios-camera${focused ? '' : '-outline'}`;
-        }else if (routeName === 'History'){
-          iconName = `history${focused ? '' : '-outline'}`;
+        } else if (routeName === 'History') {
+          iconName = `ios-list${focused ? '' : '-outline'}`;
         }
 
-
         return <Ionicons name={iconName} size={25} color={tintColor} />;
-      },
+      }
     }),
+
     tabBarComponent: TabBarBottom,
     tabBarPosition: 'bottom',
     tabBarOptions: {
       activeTintColor: '#9BDF69',
-      inactiveTintColor: 'gray',
+      inactiveTintColor: 'gray'
     },
+    header: null,
     animationEnabled: false,
-    swipeEnabled: false,
+    swipeEnabled: false
   }
 );
+
+const Router = StackNavigator(
+  {
+    Start: { screen: StartScreen },
+    Onboarding: { screen: OnboardingScreen },
+    MainStack: { screen: TabNav }
+  },
+  {
+    navigationOptions: {
+      header: null
+    }
+  }
+);
+
+export default Router;
