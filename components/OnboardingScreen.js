@@ -38,7 +38,7 @@ export default class OnboardingScreen extends React.Component {
         onSkip={this.onSkip}
         pages={[
           {
-            backgroundColor: 'transparent',
+            backgroundColor: '#28D190',
             image: (
               <ImageBackground
                 style={styles.imgBackground}
@@ -49,7 +49,7 @@ export default class OnboardingScreen extends React.Component {
             title: <Text style={styles.title}>Добро пожаловать, в Bagban!</Text>
           },
           {
-            backgroundColor: 'transparent',
+            backgroundColor: '#28D190',
             image: (
               <ImageBackground
                 style={styles.imgBackground}
@@ -60,7 +60,7 @@ export default class OnboardingScreen extends React.Component {
             title: (
               <Text style={styles.title2}>
                 Данное приложение в процессе разработки и ожидаются возможные
-                ошибки в распозновании
+                ошибки в распозновании. Заранее благодарим, вас за понимание
               </Text>
             )
           }
@@ -85,16 +85,17 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 32,
     position: 'absolute',
-    top: 180,
-    width: 330,
+    top: 140,
+    width: 300,
     textAlign: 'center'
   },
   title2: {
     color: '#fff',
-    fontSize: 24,
+    fontSize: 26,
     position: 'absolute',
-    top: 80,
-    width: 250,
-    textAlign: 'right'
+    top: 100,
+    width: 280,
+    textAlign: 'center',
+    fontWeight: 'bold'
   }
 });

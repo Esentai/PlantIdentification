@@ -31,7 +31,7 @@ export default class StartScreen extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <ActivityIndicator size="small" color="#00ff00" animating={true} />
+        <ActivityIndicator size="small" color="#28D190" animating={true} />
       </View>
     );
   }

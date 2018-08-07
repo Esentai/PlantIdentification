@@ -97,7 +97,7 @@ export default class CameraScreen extends React.Component {
           />
           {this.state.loading && (
             <View style={styles.loading}>
-              <ActivityIndicator size="large" color="#00ff00" />
+              <ActivityIndicator size="large" color="#28D190" />
               <Text style={styles.loadingText}>Подождите, пожалуйста!</Text>
             </View>
           )}
@@ -106,7 +106,7 @@ export default class CameraScreen extends React.Component {
               style={styles.albumButton}
               onPress={this._pickImage}
             >
-              <Ionicons name={'ios-albums'} size={35} color={'#9BDF69'} />
+              <Ionicons name={'ios-albums'} size={35} color={'#28D190'} />
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.takePhotoButton}
@@ -132,7 +132,7 @@ export default class CameraScreen extends React.Component {
               <Ionicons
                 name={'ios-reverse-camera-outline'}
                 size={50}
-                color={'#9BDF69'}
+                color={'#28D190'}
               />
             </TouchableOpacity>
           </View>
@@ -243,8 +243,8 @@ const styles = StyleSheet.create({
     paddingRight: 10,
     borderRadius: 5,
     borderWidth: 1,
-    borderColor: '#9BDF69',
-    color: '#9BDF69'
+    borderColor: '#28D190',
+    color: '#28D190'
   },
   ReverseCameraButton: {
     alignSelf: 'center',

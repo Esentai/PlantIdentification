@@ -60,7 +60,7 @@ const TabNav = TabNavigator(
     tabBarComponent: TabBarBottom,
     tabBarPosition: 'bottom',
     tabBarOptions: {
-      activeTintColor: '#9BDF69',
+      activeTintColor: '#28D190',
       inactiveTintColor: 'gray'
     },
     header: null,
